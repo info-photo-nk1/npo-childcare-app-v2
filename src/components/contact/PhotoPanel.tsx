@@ -1,23 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Calendar, Tag } from 'lucide-react';
 import PhotoGallery from './PhotoGallery';
-import { photos } from '../../data/photos';
+import { photos as photoData } from '../../data/photos';
+import type { Photo } from '../../types/contact';
 
 const PhotoPanel = () => {
   const [selectedDate, setSelectedDate] = useState<string>('');
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
 
-  const allTags = Array.from(
-    new Set(photos.flatMap(photo => photo.tags))
-  );
+  const allTags = useMemo(() => {
+    return Array.from(new Set(photoData.flatMap(photo => photo.tags)));
+  }, [photoData]);
 
-  const filteredPhotos = photos.filter(photo => {
-    if (selectedDate && photo.date !== selectedDate) return false;
-    if (selectedTags.length > 0) {
-      return selectedTags.every(tag => photo.tags.includes(tag));
-    }
-    return true;
-  });
+  const filteredPhotos = useMemo(() => {
+    return photoData.filter(photo => {
+      if (selectedDate && photo.date !== selectedDate) return false;
+      if (selectedTags.length > 0) {
+        return selectedTags.every(tag => photo.tags.includes(tag));
+      }
+      return true;
+    });
+  }, [selectedDate, selectedTags, photoData]);
+
+  const groupedPhotos = useMemo(() => {
+    return filteredPhotos.reduce((acc: { [key: string]: Photo[] }, photo) => {
+      const date = photo.date;
+      if (!acc[date]) {
+        acc[date] = [];
+      }
+      acc[date].push(photo);
+      return acc;
+    }, {});
+  }, [filteredPhotos]);
 
   return (
     <div>
@@ -55,10 +69,15 @@ const PhotoPanel = () => {
         </div>
       </div>
 
-      <PhotoGallery
-        photos={filteredPhotos}
-        onPhotoSelect={(photo) => console.log('Selected photo:', photo)}
-      />
+      {Object.entries(groupedPhotos).sort((a, b) => b[0].localeCompare(a[0])).map(([date, photos]) => (
+        <div key={date} className="mb-8">
+          <h2 className="text-xl font-semibold mb-4">{date}</h2>
+          <PhotoGallery
+            photos={photos}
+            onPhotoSelect={(photo) => console.log('Selected photo:', photo)}
+          />
+        </div>
+      ))}
     </div>
   );
 };
