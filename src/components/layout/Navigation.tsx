@@ -35,3 +35,5 @@ const Navigation = ({ mobile = false }) => {
     </nav>
   );
 };
+
+export default Navigation;
