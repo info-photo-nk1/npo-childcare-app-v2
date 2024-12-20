@@ -7,6 +7,7 @@ const Navigation = ({ mobile = false }) => {
     { to: '/match', icon: Map, label: '施設検索' },
     { to: '/info', icon: Info, label: '育児情報' },
     { to: '/contact', icon: MessageSquare, label: '連絡帳' },
+    { to: '/diary', icon: MessageSquare, label: '育児日誌' },
     { to: '/rental', icon: Package, label: '用品レンタル' },
     { to: '/community', icon: Users, label: '子育て仲間' },
   ];

@@ -6,6 +6,7 @@ import InfoPage from '../../pages/InfoPage';
 import ContactPage from '../../pages/ContactPage';
 import RentalPage from '../../pages/RentalPage';
 import CommunityPage from '../../pages/CommunityPage';
+import DiaryPage from '../../pages/DiaryPage';
 
 const Main = () => {
   return (
@@ -15,6 +16,7 @@ const Main = () => {
         <Route path="/match/*" element={<MatchPage />} />
         <Route path="/info/*" element={<InfoPage />} />
         <Route path="/contact/*" element={<ContactPage />} />
+        <Route path="/diary/*" element={<DiaryPage />} />
         <Route path="/rental/*" element={<RentalPage />} />
         <Route path="/community/*" element={<CommunityPage />} />
       </Routes>
