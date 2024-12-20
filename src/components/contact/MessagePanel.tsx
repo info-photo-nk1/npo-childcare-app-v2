@@ -1,11 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { Search, Filter } from 'lucide-react';
 import MessageList from './MessageList';
-import { messages } from '../../data/messages';
+import { messages as initialMessages } from '../../data/messages';
 
 const MessagePanel = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [filter, setFilter] = useState('all');
+  const [messages, setMessages] = useState(initialMessages);
+
+  const handleRead = useCallback((id: string) => {
+    setMessages(prevMessages =>
+      prevMessages.map(message =>
+        message.id === id ? { ...message, isRead: true } : message
+      )
+    );
+  }, []);
 
   const filteredMessages = messages.filter(message => {
     if (filter !== 'all' && message.sender.role !== filter) return false;
@@ -46,6 +55,7 @@ const MessagePanel = () => {
       <MessageList
         messages={filteredMessages}
         onMessageSelect={(message) => console.log('Selected message:', message)}
+        onRead={handleRead}
       />
     </div>
   );

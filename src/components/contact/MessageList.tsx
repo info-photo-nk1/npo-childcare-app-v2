@@ -5,15 +5,19 @@ import type { Message } from '../../types/contact';
 interface MessageListProps {
   messages: Message[];
   onMessageSelect: (message: Message) => void;
+  onRead: (id: string) => void;
 }
 
-const MessageList: React.FC<MessageListProps> = ({ messages, onMessageSelect }) => {
+const MessageList: React.FC<MessageListProps> = ({ messages, onMessageSelect, onRead }) => {
   return (
     <div className="space-y-2">
       {messages.map((message) => (
         <button
           key={message.id}
-          onClick={() => onMessageSelect(message)}
+          onClick={() => {
+            onMessageSelect(message);
+            onRead(message.id);
+          }}
           className="w-full text-left p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200"
         >
           <div className="flex items-center justify-between mb-2">
