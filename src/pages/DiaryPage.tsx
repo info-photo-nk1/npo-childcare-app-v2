@@ -1,10 +1,10 @@
 import React from 'react';
 
-const DiaryPage: React.FC = () => {
+const DiaryPage = () => {
   return (
     <div>
-      <h1>連絡帳</h1>
-      <p>連絡帳のコンテンツをここに追加します。</p>
+      <h1>日記</h1>
+      <p>日々の出来事やメモを記録できます。</p>
     </div>
   );
 };

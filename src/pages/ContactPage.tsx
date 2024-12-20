@@ -7,7 +7,8 @@ import DailyRecordPanel from '../components/contact/DailyRecordPanel';
 import GrowthPanel from '../components/contact/GrowthPanel';
 import AllergyPanel from '../components/contact/AllergyPanel';
 import SchedulePanel from '../components/contact/SchedulePanel';
-import { Bell, Image, Book, Activity, AlertTriangle, Calendar } from 'lucide-react';
+import { Bell, Image, Book, Activity, AlertTriangle, Calendar, Edit } from 'lucide-react';
+import DiaryPage from '../pages/DiaryPage';
 
 const ContactPage = () => {
   const [activeTab, setActiveTab] = useState('messages');
@@ -24,6 +25,7 @@ const ContactPage = () => {
           <TabsTrigger value="growth"><Activity className="mr-2 h-4 w-4" />成長記録</TabsTrigger>
           <TabsTrigger value="allergy"><AlertTriangle className="mr-2 h-4 w-4" />アレルギー</TabsTrigger>
           <TabsTrigger value="schedule"><Calendar className="mr-2 h-4 w-4" />スケジュール</TabsTrigger>
+          <TabsTrigger value="diary"><Edit className="mr-2 h-4 w-4" />日記</TabsTrigger>
         </TabsList>
 
         <TabsContent value="messages">
@@ -48,6 +50,10 @@ const ContactPage = () => {
 
         <TabsContent value="schedule">
           <SchedulePanel />
+        </TabsContent>
+
+        <TabsContent value="diary">
+          <DiaryPage />
         </TabsContent>
       </Tabs>
     </div>
