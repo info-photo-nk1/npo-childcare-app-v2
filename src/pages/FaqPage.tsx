@@ -1,20 +1,34 @@
 import React from 'react';
 
-const FaqPage: React.FC = () => {
+const FaqPage = () => {
   return (
-    <div className="container mx-auto py-10">
-      <h1 className="text-3xl font-bold mb-5">よくある質問</h1>
-      <div className="mb-5">
-        <h2 className="text-xl font-semibold mb-3">質問1：〇〇〇〇</h2>
-        <p className="ml-5">回答1：〇〇〇〇</p>
-      </div>
-      <div className="mb-5">
-        <h2 className="text-xl font-semibold mb-3">質問2：〇〇〇〇</h2>
-        <p className="ml-5">回答2：〇〇〇〇</p>
-      </div>
-      <div>
-        <h2 className="text-xl font-semibold mb-3">質問3：〇〇〇〇</h2>
-        <p className="ml-5">回答3：〇〇〇〇</p>
+    <div className="max-w-3xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+      <h1 className="text-3xl font-semibold text-gray-900 mb-8">よくある質問</h1>
+      <div className="space-y-6">
+        <div className="border-b border-gray-200 pb-5">
+          <h3 className="text-lg leading-6 font-medium text-gray-900">
+            サービスについて
+          </h3>
+          <p className="mt-2 text-base text-gray-500">
+            当サービスに関する一般的な質問とその回答を掲載しています。
+          </p>
+        </div>
+        <div className="border-b border-gray-200 pb-5">
+          <h3 className="text-lg leading-6 font-medium text-gray-900">
+            アカウントについて
+          </h3>
+          <p className="mt-2 text-base text-gray-500">
+            アカウントの作成、管理に関する質問とその回答を掲載しています。
+          </p>
+        </div>
+        <div className="border-b border-gray-200 pb-5">
+          <h3 className="text-lg leading-6 font-medium text-gray-900">
+            お問い合わせについて
+          </h3>
+          <p className="mt-2 text-base text-gray-500">
+            お問い合わせ方法に関する質問とその回答を掲載しています。
+          </p>
+        </div>
       </div>
     </div>
   );

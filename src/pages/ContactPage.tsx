@@ -1,61 +1,32 @@
-import React, { useState } from 'react';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/Tabs';
-import ContactHeader from '../components/contact/ContactHeader';
-import MessagePanel from '../components/contact/MessagePanel';
-import PhotoPanel from '../components/contact/PhotoPanel';
-import DailyRecordPanel from '../components/contact/DailyRecordPanel';
-import GrowthPanel from '../components/contact/GrowthPanel';
-import AllergyPanel from '../components/contact/AllergyPanel';
-import SchedulePanel from '../components/contact/SchedulePanel';
-import { Bell, Image, Book, Activity, AlertTriangle, Calendar, Edit } from 'lucide-react';
-import DiaryPage from '../pages/DiaryPage';
+import React from 'react';
 
 const ContactPage = () => {
-  const [activeTab, setActiveTab] = useState('messages');
-
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <ContactHeader />
-
-      <Tabs value={activeTab} onValueChange={setActiveTab}>
-        <TabsList className="mb-8">
-          <TabsTrigger value="messages"><Bell className="mr-2 h-4 w-4" />お知らせ</TabsTrigger>
-          <TabsTrigger value="photos"><Image className="mr-2 h-4 w-4" />写真</TabsTrigger>
-          <TabsTrigger value="daily-record"><Book className="mr-2 h-4 w-4" />保育記録</TabsTrigger>
-          <TabsTrigger value="growth"><Activity className="mr-2 h-4 w-4" />成長記録</TabsTrigger>
-          <TabsTrigger value="allergy"><AlertTriangle className="mr-2 h-4 w-4" />アレルギー</TabsTrigger>
-          <TabsTrigger value="schedule"><Calendar className="mr-2 h-4 w-4" />スケジュール</TabsTrigger>
-          <TabsTrigger value="diary"><Edit className="mr-2 h-4 w-4" />日記</TabsTrigger>
-        </TabsList>
-
-        <TabsContent value="messages">
-          <MessagePanel />
-        </TabsContent>
-
-        <TabsContent value="photos">
-          <PhotoPanel />
-        </TabsContent>
-
-        <TabsContent value="daily-record">
-          <DailyRecordPanel />
-        </TabsContent>
-
-        <TabsContent value="growth">
-          <GrowthPanel />
-        </TabsContent>
-
-        <TabsContent value="allergy">
-          <AllergyPanel />
-        </TabsContent>
-
-        <TabsContent value="schedule">
-          <SchedulePanel />
-        </TabsContent>
-
-        <TabsContent value="diary">
-          <DiaryPage />
-        </TabsContent>
-      </Tabs>
+    <div className="max-w-3xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+      <h1 className="text-3xl font-semibold text-gray-900 mb-8">お問い合わせ</h1>
+      <div className="space-y-6">
+        <div>
+          <h3 className="text-lg leading-6 font-medium text-gray-900">
+            お問い合わせフォーム
+          </h3>
+          <p className="mt-2 text-base text-gray-500">
+            ご不明な点がございましたら、お気軽にお問い合わせください。
+          </p>
+          {/* お問い合わせフォームのコンポーネントをここに追加 */}
+        </div>
+        <div>
+          <h3 className="text-lg leading-6 font-medium text-gray-900">
+            電話でのお問い合わせ
+          </h3>
+          <p className="mt-2 text-base text-gray-500">
+            お急ぎの場合は、お電話にてお問い合わせください。
+            <br />
+            電話番号：XXX-XXX-XXXX
+            <br />
+            受付時間：平日 9:00〜17:00
+          </p>
+        </div>
+      </div>
     </div>
   );
 };
