@@ -8,6 +8,7 @@ import MatchPage from './pages/MatchPage';
 import ContactPage from './pages/ContactPage';
 import InfoPage from './pages/InfoPage';
 import DiaryPage from './pages/DiaryPage';
+import FaqPage from './pages/FaqPage';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/diary" element={<DiaryPage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/faq" element={<FaqPage />} />
         </Routes>
         <Footer />
       </div>
