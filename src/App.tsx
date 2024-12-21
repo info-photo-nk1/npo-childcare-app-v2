@@ -6,6 +6,8 @@ import Footer from './components/layout/Footer';
 import LoginPage from './pages/LoginPage';
 import MatchPage from './pages/MatchPage';
 import ContactPage from './pages/ContactPage';
+import InfoPage from './pages/InfoPage';
+import DiaryPage from './pages/DiaryPage';
 
 function App() {
   return (
@@ -13,9 +15,11 @@ function App() {
       <div className="min-h-screen bg-neutral-50 flex flex-col">
         <Header />
         <Routes>
-          <Route path="/" element={<Main />} />
+          <Route path="*" element={<Main />} />
           <Route path="/match" element={<MatchPage />} />
+          <Route path="/info" element={<InfoPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/diary" element={<DiaryPage />} />
           <Route path="/login" element={<LoginPage />} />
         </Routes>
         <Footer />
