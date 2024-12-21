@@ -9,6 +9,8 @@ import ContactPage from './pages/ContactPage';
 import InfoPage from './pages/InfoPage';
 import DiaryPage from './pages/DiaryPage';
 import FaqPage from './pages/FaqPage';
+import TermsOfServicePage from './pages/TermsOfServicePage';
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
           <Route path="/diary" element={<DiaryPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/faq" element={<FaqPage />} />
+          <Route path="/terms" element={<TermsOfServicePage />} />
+          <Route path="/privacy" element={<PrivacyPolicyPage />} />
         </Routes>
         <Footer />
       </div>
