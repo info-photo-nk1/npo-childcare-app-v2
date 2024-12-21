@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Map, Info, MessageSquare, Package, Users } from 'lucide-react';
+import { Map, Info, MessageSquare, Package, Users, HelpCircle } from 'lucide-react';
 
 const Navigation = ({ mobile = false }) => {
   const navItems = [
@@ -10,6 +10,7 @@ const Navigation = ({ mobile = false }) => {
     { to: '/diary', icon: MessageSquare, label: '育児日誌' },
     { to: '/rental', icon: Package, label: '用品レンタル' },
     { to: '/community', icon: Users, label: '子育て仲間' },
+    { to: '/faq', icon: HelpCircle, label: 'よくある質問' },
   ];
 
   const baseClasses = mobile
