@@ -11,6 +11,8 @@ import DiaryPage from './pages/DiaryPage';
 import FaqPage from './pages/FaqPage';
 import TermsOfServicePage from './pages/TermsOfServicePage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
+import RentalPage from './pages/RentalPage';
+import RentalDetailPage from './pages/RentalDetailPage';
 
 function App() {
   return (
@@ -27,6 +29,8 @@ function App() {
           <Route path="/faq" element={<FaqPage />} />
           <Route path="/terms" element={<TermsOfServicePage />} />
           <Route path="/privacy" element={<PrivacyPolicyPage />} />
+          <Route path="/rental" element={<RentalPage />} />
+          <Route path="/rental/:id" element={<RentalDetailPage />} />
         </Routes>
         <Footer />
       </div>

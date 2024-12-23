@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Search, Plus } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import ItemCard from '../components/rental/ItemCard';
 import FilterPanel from '../components/rental/FilterPanel';
 import type { RentalItem, RentalFilters } from '../types/rental';
@@ -43,7 +44,7 @@ const mockItems: RentalItem[] = [
 const RentalPage = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [filters, setFilters] = useState<RentalFilters>({});
-  const [selectedItem, setSelectedItem] = useState<RentalItem | null>(null);
+  const navigate = useNavigate();
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -89,7 +90,7 @@ const RentalPage = () => {
               <ItemCard
                 key={item.id}
                 item={item}
-                onClick={() => setSelectedItem(item)}
+                onClick={() => navigate(`/rental/${item.id}`)}
               />
             ))}
           </div>
