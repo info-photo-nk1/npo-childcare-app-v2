@@ -19,7 +19,9 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ article, featured, layout = '
       }`}
     >
       <div className={`relative ${
-        featured || isList ? 'lg:w-2/5' : 'aspect-video'
+        featured || isList 
+          ? 'h-48 sm:h-56 md:h-48 lg:h-auto lg:w-1/4' 
+          : 'h-48 sm:h-56 md:h-48 aspect-video'
       }`}>
         <img
           src={article.imageUrl}
