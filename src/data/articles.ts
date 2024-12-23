@@ -41,7 +41,7 @@ export const articles = [
   {
     id: '1',
     title: '【専門家監修】1歳児の発達目安と接し方のポイント',
-    excerpt: '1歳児の特徴的な行動や発達の目安、接し方のコツをご紹介します。',
+    excerpt: '1歳児の特徴的な行動や発達の目安、接し方のコツをご紹介します。言葉の発達や運動機能の成長について詳しく解説。',
     category: '発達と成長',
     date: '2024.03.15',
     author: {
@@ -55,14 +55,71 @@ export const articles = [
   {
     id: '2',
     title: '春からの幼稚園入園準備！必要なものと心構え',
-    excerpt: '幼稚園入園に向けて準備しておきたいものと、入園までにできることをまとめました。',
+    excerpt: '幼稚園入園に向けて準備しておきたいものと、入園までにできることをまとめました。持ち物リストと準備のタイムラインを詳しく解説。',
     category: '教育',
     date: '2024.03.14',
     author: {
       name: '佐藤 美咲',
+      avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80',
     },
     imageUrl: 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=800&q=80',
     readingTime: 8,
     likes: 189,
   },
+  {
+    id: '3',
+    title: '子どもの発熱時の対処法と受診の目安',
+    excerpt: '子どもの発熱時の正しい対処方法と、病院を受診すべきタイミングについて医師が解説。体温の正しい測り方も紹介。',
+    category: '健康',
+    date: '2024.03.13',
+    author: {
+      name: '鈴木 医師',
+      avatar: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=100&q=80',
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80',
+    readingTime: 12,
+    likes: 328,
+  },
+  {
+    id: '4',
+    title: '管理栄養士が教える！1歳からの幼児食レシピ集',
+    excerpt: '手軽に作れる栄養バランスの良い幼児食のレシピをご紹介。食材の切り方や調理の工夫など、安全面にも配慮した内容です。',
+    category: '食事と栄養',
+    date: '2024.03.12',
+    author: {
+      name: '田中 栄養士',
+      avatar: 'https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&w=100&q=80',
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1505576399279-565b52d4ac71?auto=format&fit=crop&w=800&q=80',
+    readingTime: 15,
+    likes: 412,
+  },
+  {
+    id: '5',
+    title: 'トイレトレーニングの始め方と成功のコツ',
+    excerpt: '年齢に応じたトイレトレーニングの進め方と、よくある困りごとへの対処法を紹介。焦らず楽しく進めるためのポイントを解説。',
+    category: '生活習慣',
+    date: '2024.03.11',
+    author: {
+      name: '中村 保育士',
+      avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=100&q=80',
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1584473457406-6240486418e9?auto=format&fit=crop&w=800&q=80',
+    readingTime: 10,
+    likes: 267,
+  },
+  {
+    id: '6',
+    title: '地域の子育てサークル活用ガイド',
+    excerpt: '子育てサークルの見つけ方や参加するメリット、初めて参加する際の準備や心構えについて、実際の体験談を交えて紹介します。',
+    category: '子育て仲間',
+    date: '2024.03.10',
+    author: {
+      name: '木村 明子',
+      avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&q=80',
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1536640712-4d4c36ff0e4e?auto=format&fit=crop&w=800&q=80',
+    readingTime: 8,
+    likes: 156,
+  }
 ];
