@@ -1,31 +1,56 @@
-import React from 'react';
+import React, { useState } from 'react';
+import ContactHeader from '../components/contact/ContactHeader';
+import MessagePanel from '../components/contact/MessagePanel';
+import PhotoPanel from '../components/contact/PhotoPanel';
+import DailyRecordPanel from '../components/contact/DailyRecordPanel';
+import GrowthPanel from '../components/contact/GrowthPanel';
+import AllergyPanel from '../components/contact/AllergyPanel';
+import SchedulePanel from '../components/contact/SchedulePanel';
 
 const ContactPage = () => {
+  const [activeTab, setActiveTab] = useState('messages');
+
+  const tabs = [
+    { id: 'messages', label: 'メッセージ' },
+    { id: 'photos', label: '写真' },
+    { id: 'daily', label: '保育記録' },
+    { id: 'growth', label: '成長記録' },
+    { id: 'allergy', label: 'アレルギー' },
+    { id: 'schedule', label: 'スケジュール' },
+  ];
+
   return (
-    <div className="max-w-3xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-      <h1 className="text-3xl font-semibold text-gray-900 mb-8">お問い合わせ</h1>
-      <div className="space-y-6">
-        <div>
-          <h3 className="text-lg leading-6 font-medium text-gray-900">
-            お問い合わせフォーム
-          </h3>
-          <p className="mt-2 text-base text-gray-500">
-            ご不明な点がございましたら、お気軽にお問い合わせください。
-          </p>
-          {/* お問い合わせフォームのコンポーネントをここに追加 */}
-        </div>
-        <div>
-          <h3 className="text-lg leading-6 font-medium text-gray-900">
-            電話でのお問い合わせ
-          </h3>
-          <p className="mt-2 text-base text-gray-500">
-            お急ぎの場合は、お電話にてお問い合わせください。
-            <br />
-            電話番号：XXX-XXX-XXXX
-            <br />
-            受付時間：平日 9:00〜17:00
-          </p>
-        </div>
+    <div className="container mx-auto px-4 py-8">
+      <ContactHeader />
+      
+      {/* タブナビゲーション */}
+      <div className="border-b border-gray-200 mb-6">
+        <nav className="-mb-px flex space-x-8">
+          {tabs.map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className={`
+                py-4 px-1 border-b-2 font-medium text-sm
+                ${activeTab === tab.id
+                  ? 'border-blue-500 text-blue-600'
+                  : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'}
+              `}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </nav>
+      </div>
+
+      {/* タブコンテンツ */}
+      <div className="mt-6">
+        {activeTab === 'messages' && <MessagePanel />}
+        {activeTab === 'photos' && <PhotoPanel />}
+        {activeTab === 'daily' && <DailyRecordPanel />}
+        {activeTab === 'growth' && <GrowthPanel />}
+        {activeTab === 'allergy' && <AllergyPanel />}
+        {activeTab === 'schedule' && <SchedulePanel />}
       </div>
     </div>
   );
