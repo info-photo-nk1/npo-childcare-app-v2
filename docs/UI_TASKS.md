@@ -2,6 +2,8 @@
 
 ## ホーム画面
 
+## 施設検索画面
+
 - [ ] 施設の検索機能を実装する (`src/components/match/SearchFilters.tsx`, `src/components/match/FacilityList.tsx`, `src/components/match/FacilityCard.tsx`, `src/components/match/FacilityMap.tsx`)
 - [ ] おすすめの施設リストを表示する (`src/components/match/FacilityList.tsx`, `src/components/match/FacilityCard.tsx`)
 - [ ] 最新のニュース記事を表示する (`src/components/common/NewsCard.tsx`)
