@@ -14,7 +14,8 @@
 
 ## デプロイ環境
 
-*   (デプロイ環境について記述)
+*   **フロントエンド:** Netlify, Vercel, AWS S3など
+*   **バックエンド:** Heroku, AWS EC2, Google Cloud Platformなど
 
 ## 注意事項
 
