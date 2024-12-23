@@ -23,11 +23,11 @@ const InfoPage = () => {
   });
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <div className="lg:flex lg:items-center lg:justify-between mb-8">
+    <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="lg:flex lg:items-center lg:justify-between mb-8 bg-gradient-to-r from-rose-50 to-white p-6 rounded-xl">
         <div className="flex-1 min-w-0">
-          <h1 className="text-3xl font-bold text-gray-900 mb-4">育児情報</h1>
-          <p className="text-gray-600">専門家監修の信頼できる育児情報をお届けします</p>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">育児情報</h1>
+          <p className="text-lg text-gray-600">専門家監修の信頼できる育児情報をお届けします</p>
         </div>
         <div className="mt-4 lg:mt-0 lg:ml-4">
           <div className="flex items-center gap-4">
@@ -74,10 +74,17 @@ const InfoPage = () => {
             />
           </section>
 
-          <section className="mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">注目の記事</h2>
+          <section className="mb-12" aria-labelledby="featured-articles">
+            <h2 id="featured-articles" className="text-2xl font-bold text-gray-900 mb-6">
+              注目の記事
+              <span className="ml-2 inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-rose-100 text-rose-800">
+                FEATURED
+              </span>
+            </h2>
             {filteredArticles.length > 0 && (
-              <ArticleCard article={filteredArticles[0]} featured />
+              <div className="transform transition-all hover:scale-[1.02] duration-300">
+                <ArticleCard article={filteredArticles[0]} featured />
+              </div>
             )}
           </section>
 
@@ -103,27 +110,35 @@ const InfoPage = () => {
         </div>
 
         <div className="lg:col-span-1 mt-8 lg:mt-0">
-          <div className="bg-white rounded-lg shadow-sm p-6 sticky top-8">
+          <div className="bg-white rounded-lg shadow-sm p-6 sticky top-24 border border-gray-100">
             <h3 className="font-semibold text-gray-900 mb-4">人気のタグ</h3>
             <PopularTags />
             
             <div className="mt-8">
-              <h3 className="font-semibold text-gray-900 mb-4">記事を絞り込む</h3>
+              <h3 className="font-semibold text-gray-900 mb-4 flex items-center">
+                <Filter className="w-4 h-4 mr-2" />
+                記事を絞り込む
+              </h3>
               <div className="space-y-4">
-                <label className="flex items-center">
+                <label className="flex items-center hover:bg-rose-50 p-2 rounded-lg transition-colors cursor-pointer">
                   <input type="checkbox" className="rounded border-gray-300 text-rose-500 focus:ring-rose-500" />
                   <span className="ml-2 text-sm text-gray-600">専門家監修記事のみ</span>
                 </label>
-                <label className="flex items-center">
+                <label className="flex items-center hover:bg-rose-50 p-2 rounded-lg transition-colors cursor-pointer">
                   <input type="checkbox" className="rounded border-gray-300 text-rose-500 focus:ring-rose-500" />
                   <span className="ml-2 text-sm text-gray-600">新着記事のみ</span>
                 </label>
+                <div className="pt-4 border-t border-gray-100">
+                  <button className="w-full py-2 px-4 bg-rose-50 text-rose-600 rounded-lg hover:bg-rose-100 transition-colors">
+                    フィルターをリセット
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </main>
   );
 };
 
