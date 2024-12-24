@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, MapPin, Tag, Clock } from 'lucide-react';
+import AdoptionForm from '../components/rental/AdoptionForm';
 import type { RentalItem } from '../types/rental';
 
 // モックデータ（本来はAPIから取得）
@@ -52,10 +53,11 @@ const listingTypeColors = {
 };
 
 const RentalDetailPage = () => {
+  const [showAdoptionForm, setShowAdoptionForm] = useState(false);
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  
-  const item = mockItems.find(item => item.id === id);
+
+  const item = mockItems.find((item) => item.id === id);
 
   if (!item) {
     return (
@@ -64,6 +66,10 @@ const RentalDetailPage = () => {
       </div>
     );
   }
+
+  const handleAdoptionRequest = () => {
+    setShowAdoptionForm(true);
+  };
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -83,7 +89,7 @@ const RentalDetailPage = () => {
               alt={item.title}
               className="w-full h-full object-cover"
             />
-            <span className={`absolute top-4 left-4 px-3 py-1.5 rounded-full text-sm font-medium ${listingTypeColors[item.listingType]}`}>
+            <span className={"absolute top-4 left-4 px-3 py-1.5 rounded-full text-sm font-medium " + listingTypeColors[item.listingType]}>
               {listingTypeLabels[item.listingType]}
             </span>
           </div>
@@ -149,12 +155,20 @@ const RentalDetailPage = () => {
             </div>
           </div>
 
-          <button className="w-full py-3 bg-rose-500 text-white rounded-lg hover:bg-rose-600 transition-colors">
-            {item.listingType === 'rent' ? 'レンタルを申し込む' :
-             item.listingType === 'give' ? '譲り受けを申し込む' :
-             '購入を申し込む'
-            }
-          </button>
+          {showAdoptionForm ? (
+            <AdoptionForm onSubmit={(nickname, comment) => {
+              console.log('ニックネーム:', nickname);
+              console.log('コメント:', comment);
+              alert('リクエストを送信しました (バックエンドはまだ実装されていません)');
+            }} />
+          ) : (
+            <button
+              className="w-full py-3 bg-rose-500 text-white rounded-lg hover:bg-rose-600 transition-colors"
+              onClick={handleAdoptionRequest}
+            >
+              譲り受けを申し込む
+            </button>
+          )}
         </div>
       </div>
     </div>
