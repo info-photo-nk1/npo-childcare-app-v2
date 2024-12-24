@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Map, Info, MessageSquare, Package, Users, HelpCircle } from 'lucide-react';
+import { Map, Info, MessageSquare, Package, Users, HelpCircle, LogIn } from 'lucide-react';
 
 const Navigation = ({ mobile = false }) => {
   const navItems = [
@@ -34,6 +34,17 @@ const Navigation = ({ mobile = false }) => {
           {label}
         </NavLink>
       ))}
+      {mobile && (
+        <NavLink
+          to="/login"
+          className={({ isActive }) =>
+            `${baseClasses} ${isActive ? activeClasses : inactiveClasses}`
+          }
+        >
+          <LogIn className="mr-3 h-5 w-5" />
+          ログイン
+        </NavLink>
+      )}
     </nav>
   );
 };

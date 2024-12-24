@@ -17,7 +17,7 @@ const Header = () => {
             </Link>
           </div>
 
-          <div className="hidden md:flex items-center space-x-4 flex-grow justify-end">
+          <div className="hidden lg:flex items-center space-x-4 flex-grow justify-end">
             <Navigation />
             <div className="flex items-center">
               <button className="p-2 text-gray-500 hover:text-gray-700">
@@ -29,7 +29,10 @@ const Header = () => {
             </Link>
           </div>
 
-          <div className="flex items-center md:hidden">
+          <div className="flex items-center lg:hidden">
+            <Link to="/login" className="hidden sm:block px-3 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 mr-4">
+              ログイン
+            </Link>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="p-2 text-gray-500 hover:text-gray-700"
@@ -41,7 +44,7 @@ const Header = () => {
       </div>
 
       {isMenuOpen && (
-        <div className="md:hidden">
+        <div className="lg:hidden">
           <Navigation mobile />
         </div>
       )}
