@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { unstable_HistoryRouter as HistoryRouter } from 'react-router-dom';
 import Header from './components/layout/Header';
 import Main from './components/layout/Main';
 import Footer from './components/layout/Footer';
@@ -16,7 +17,7 @@ import RentalDetailPage from './pages/RentalDetailPage';
 
 function App() {
   return (
-    <Router>
+    <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
       <div className="min-h-screen bg-neutral-50 flex flex-col">
         <Header />
         <Routes>
