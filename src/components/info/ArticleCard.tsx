@@ -14,19 +14,21 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ article, featured, layout = '
   
   return (
     <Component 
-      className={`bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-200 ${
+      className={`bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 group ${
         featured || isList ? 'lg:flex' : ''
       }`}
     >
       <div className={`relative ${
-        featured || isList ? 'lg:w-2/5' : 'aspect-video'
+        featured || isList 
+          ? 'h-48 sm:h-56 md:h-48 lg:h-auto lg:w-1/4' 
+          : 'h-48 sm:h-56 md:h-48 aspect-video'
       }`}>
         <img
           src={article.imageUrl}
           alt={article.title}
           className="w-full h-full object-cover"
         />
-        <span className="absolute top-2 left-2 px-2 py-1 bg-rose-500 text-white text-xs rounded">
+          <span className="absolute top-2 left-2 px-3 py-1 bg-rose-500 text-white text-xs rounded-full font-medium backdrop-blur-sm bg-opacity-90">
           {article.category}
         </span>
       </div>
@@ -43,7 +45,7 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ article, featured, layout = '
           <span className="text-sm text-gray-600">{article.author.name}</span>
         </div>
 
-        <h3 className={`font-bold text-gray-900 mb-2 ${
+        <h3 className={`font-bold text-gray-900 mb-2 group-hover:text-rose-600 transition-colors ${
           featured ? 'text-xl' : 'text-lg'
         }`}>
           {article.title}
@@ -62,10 +64,16 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ article, featured, layout = '
             </span>
           </div>
           <div className="flex items-center gap-2">
-            <button className="p-1 hover:text-rose-500">
+            <button 
+              className="p-2 hover:text-rose-500 hover:bg-rose-50 rounded-full transition-colors" 
+              aria-label="記事を保存"
+            >
               <BookOpen className="h-4 w-4" />
             </button>
-            <button className="p-1 hover:text-rose-500">
+            <button 
+              className="p-2 hover:text-rose-500 hover:bg-rose-50 rounded-full transition-colors"
+              aria-label="記事をシェア"
+            >
               <Share2 className="h-4 w-4" />
             </button>
           </div>

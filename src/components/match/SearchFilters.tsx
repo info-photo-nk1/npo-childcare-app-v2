@@ -1,5 +1,5 @@
-import React from 'react';
-import { Filter } from 'lucide-react';
+import React, { useState } from 'react';
+import { Filter, ChevronDown, ChevronUp } from 'lucide-react';
 import type { SearchFilters } from '../../types/facility';
 
 interface SearchFiltersProps {
@@ -8,6 +8,7 @@ interface SearchFiltersProps {
 }
 
 const SearchFilters: React.FC<SearchFiltersProps> = ({ filters, onFiltersChange }) => {
+  const [isExpanded, setIsExpanded] = useState(true);
   const facilityTypes = [
     { value: 'nursery', label: '保育所' },
     { value: 'kindergarten', label: '幼稚園' },
@@ -18,13 +19,23 @@ const SearchFilters: React.FC<SearchFiltersProps> = ({ filters, onFiltersChange 
   ];
 
   return (
-    <div className="bg-white p-4 rounded-lg shadow-sm">
-      <div className="flex items-center gap-2 mb-4">
-        <Filter className="h-5 w-5 text-gray-500" />
-        <h3 className="font-medium">検索条件</h3>
-      </div>
+    <div className="bg-white rounded-lg shadow-sm">
+      <button
+        onClick={() => setIsExpanded(!isExpanded)}
+        className="w-full p-4 flex items-center justify-between hover:bg-gray-50"
+      >
+        <div className="flex items-center gap-2">
+          <Filter className="h-5 w-5 text-gray-500" />
+          <h3 className="font-medium">検索条件</h3>
+        </div>
+        {isExpanded ? (
+          <ChevronUp className="h-5 w-5 text-gray-500" />
+        ) : (
+          <ChevronDown className="h-5 w-5 text-gray-500" />
+        )}
+      </button>
 
-      <div className="space-y-4">
+      <div className={`space-y-4 p-4 border-t ${isExpanded ? '' : 'hidden'}`}>
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
             施設タイプ

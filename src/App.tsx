@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { unstable_HistoryRouter as HistoryRouter } from 'react-router-dom';
 import Header from './components/layout/Header';
 import Main from './components/layout/Main';
 import Footer from './components/layout/Footer';
@@ -11,10 +12,12 @@ import DiaryPage from './pages/DiaryPage';
 import FaqPage from './pages/FaqPage';
 import TermsOfServicePage from './pages/TermsOfServicePage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
+import RentalPage from './pages/RentalPage';
+import RentalDetailPage from './pages/RentalDetailPage';
 
 function App() {
   return (
-    <Router>
+    <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
       <div className="min-h-screen bg-neutral-50 flex flex-col">
         <Header />
         <Routes>
@@ -27,6 +30,8 @@ function App() {
           <Route path="/faq" element={<FaqPage />} />
           <Route path="/terms" element={<TermsOfServicePage />} />
           <Route path="/privacy" element={<PrivacyPolicyPage />} />
+          <Route path="/rental" element={<RentalPage />} />
+          <Route path="/rental/:id" element={<RentalDetailPage />} />
         </Routes>
         <Footer />
       </div>
