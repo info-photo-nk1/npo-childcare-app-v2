@@ -14,6 +14,7 @@ import TermsOfServicePage from './pages/TermsOfServicePage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import RentalPage from './pages/RentalPage';
 import RentalDetailPage from './pages/RentalDetailPage';
+import FacilityDetailPage from './pages/FacilityDetailPage';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Routes>
           <Route path="*" element={<Main />} />
           <Route path="/match" element={<MatchPage />} />
+          <Route path="/match/facilities/:id" element={<FacilityDetailPage />} />
           <Route path="/info" element={<InfoPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/diary" element={<DiaryPage />} />
