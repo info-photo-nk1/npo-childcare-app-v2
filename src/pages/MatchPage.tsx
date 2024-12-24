@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, List, Map } from 'lucide-react';
+import { Search, ListFilter, Map } from 'lucide-react';
 import FacilityMap from '../components/match/FacilityMap';
 import SearchFilters from '../components/match/SearchFilters';
 import FacilityList from '../components/match/FacilityList';
@@ -10,7 +10,8 @@ import type { Facility, SearchFilters as Filters } from '../types/facility';
 const MatchPage = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [filters, setFilters] = useState<Filters>({});
-  const [selectedFacility, setSelectedFacility] = useState<Facility>();
+  const [selectedFacility, setSelectedFacility] = useState<Facility | undefined>(undefined);
+  const [showMap, setShowMap] = useState(false);
 
   const { facilities: filteredFacilities, loading } = useFacilitySearch(
     mockFacilities,
@@ -47,21 +48,21 @@ const MatchPage = () => {
 
           <div className="flex-1 flex flex-col overflow-hidden">
             {/* モバイル用のタブ切り替え */}
-            <div className="xl:hidden flex border-b border-gray-200 mb-4">
+            <div className="xl:hidden flex border-b border-gray-200">
               <button
                 className={`flex-1 py-2 px-4 text-sm font-medium flex items-center justify-center gap-2 ${
-                  !selectedFacility ? 'text-rose-600 border-b-2 border-rose-600' : 'text-gray-500'
+                  !showMap ? 'text-rose-600 border-b-2 border-rose-600' : 'text-gray-500'
                 }`}
-                onClick={() => setSelectedFacility(undefined)}
+                onClick={() => setShowMap(false)}
               >
-                <List className="h-4 w-4" />
+                <ListFilter className="h-4 w-4" />
                 施設一覧
               </button>
               <button
                 className={`flex-1 py-2 px-4 text-sm font-medium flex items-center justify-center gap-2 ${
-                  selectedFacility ? 'text-rose-600 border-b-2 border-rose-600' : 'text-gray-500'
+                  showMap ? 'text-rose-600 border-b-2 border-rose-600' : 'text-gray-500'
                 }`}
-                onClick={() => selectedFacility && setSelectedFacility(selectedFacility)}
+                onClick={() => setShowMap(true)}
               >
                 <Map className="h-4 w-4" />
                 マップ
@@ -69,9 +70,9 @@ const MatchPage = () => {
             </div>
 
             {/* デスクトップ表示時は横並び、モバイル表示時はタブで切り替え */}
-            <div className="flex-1 flex xl:flex-row">
-              <div className={`xl:w-1/2 p-4 sm:p-6 lg:p-8 overflow-y-auto ${
-                selectedFacility && 'hidden xl:block'
+            <div className="flex-1 flex xl:flex-row overflow-auto">
+              <div className={`w-full xl:w-1/2 p-4 sm:p-6 lg:p-8 ${
+                showMap ? 'hidden xl:block' : ''
               }`}>
                 <div className={loading ? 'opacity-50' : ''}>
                   <FacilityList
@@ -82,8 +83,8 @@ const MatchPage = () => {
                 </div>
               </div>
               
-              <div className={`xl:w-1/2 p-4 sm:p-6 lg:p-8 ${
-                !selectedFacility && 'hidden xl:block'
+              <div className={`w-full xl:w-1/2 p-4 sm:p-6 lg:p-8 ${
+                !showMap ? 'hidden xl:block' : ''
               }`}>
                 <div className="h-full rounded-lg overflow-hidden">
                   <FacilityMap
