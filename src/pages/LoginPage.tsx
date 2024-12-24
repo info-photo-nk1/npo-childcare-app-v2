@@ -2,13 +2,25 @@ import React, { useState } from 'react';
 import Button from '../components/ui/button';
 
 export const LoginPage = () => {
+  const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [username, setUsername] = useState('');
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // TODO: ログイン処理の実装
-    console.log('Login attempt with:', { email, password });
+    if (isLogin) {
+      // TODO: ログイン処理の実装
+      console.log('Login attempt with:', { email, password });
+    } else {
+      // TODO: 新規登録処理の実装
+      if (password !== confirmPassword) {
+        alert('パスワードが一致しません');
+        return;
+      }
+      console.log('Register attempt with:', { username, email, password });
+    }
   };
 
   const handleGoogleLogin = () => {
@@ -16,18 +28,29 @@ export const LoginPage = () => {
     console.log('Google login clicked');
   };
 
+  const switchMode = () => {
+    setIsLogin(!isLogin);
+    setEmail('');
+    setPassword('');
+    setConfirmPassword('');
+    setUsername('');
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
       <div className="max-w-md w-full space-y-8 p-8 bg-white rounded-lg shadow-lg">
         <div>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-            アカウントにログイン
+            {isLogin ? 'アカウントにログイン' : '新規アカウント登録'}
           </h2>
           <p className="mt-2 text-center text-sm text-gray-600">
             または{' '}
-            <a href="#" className="font-medium text-blue-600 hover:text-blue-500">
-              新規登録はこちら
-            </a>
+            <button
+              onClick={switchMode}
+              className="font-medium text-blue-600 hover:text-blue-500"
+            >
+              {isLogin ? '新規登録はこちら' : 'ログインはこちら'}
+            </button>
           </p>
         </div>
 
@@ -68,6 +91,22 @@ export const LoginPage = () => {
 
         <form className="space-y-6" onSubmit={handleSubmit}>
           <div className="space-y-4">
+            {!isLogin && (
+              <div>
+                <label htmlFor="username" className="block text-sm font-medium text-gray-700">
+                  ユーザー名
+                </label>
+                <input
+                  id="username"
+                  type="text"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                  required
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                  placeholder="ユーザー名"
+                />
+              </div>
+            )}
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                 メールアドレス
@@ -96,27 +135,45 @@ export const LoginPage = () => {
                 placeholder="••••••••"
               />
             </div>
-            <div className="flex items-center justify-between">
-              <div className="flex items-center">
-                <input
-                  id="remember-me"
-                  name="remember-me"
-                  type="checkbox"
-                  className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
-                />
-                <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
-                  ログイン状態を保持
+            {!isLogin && (
+              <div>
+                <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">
+                  パスワード（確認）
                 </label>
+                <input
+                  id="confirmPassword"
+                  type="password"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  required
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                  placeholder="••••••••"
+                />
               </div>
-              <div className="text-sm">
-                <a href="#" className="font-medium text-blue-600 hover:text-blue-500">
-                  パスワードをお忘れですか？
-                </a>
+            )}
+            {isLogin && (
+              <div className="flex items-center justify-between">
+                <div className="flex items-center">
+                  <input
+                    id="remember-me"
+                    name="remember-me"
+                    type="checkbox"
+                    className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                  />
+                  <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
+                    ログイン状態を保持
+                  </label>
+                </div>
+                <div className="text-sm">
+                  <a href="#" className="font-medium text-blue-600 hover:text-blue-500">
+                    パスワードをお忘れですか？
+                  </a>
+                </div>
               </div>
-            </div>
+            )}
           </div>
           <Button type="submit">
-            ログイン
+            {isLogin ? 'ログイン' : '新規登録'}
           </Button>
         </form>
       </div>
