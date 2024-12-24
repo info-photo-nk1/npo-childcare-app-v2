@@ -13,6 +13,14 @@ export interface Facility {
     lat: number;
     lng: number;
   };
+  phone: string;
+  email: string;
+  website: string;
+  hours: {
+    weekday: string;
+    saturday: string;
+    sunday: string;
+  };
 }
 
 export interface SearchFilters {
