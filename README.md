@@ -78,14 +78,14 @@
 
 ## 🚀 開発者向け：ローカル環境での実行方法
 
-このセクションでは、開発者向けに、GitHubからコードをダウンロードしてローカル環境で実行する手順を説明します。
+このセクションでは、開発者向けに GitHub からコードをダウンロードしてローカル環境で実行する手順を説明します。
 
 ### 💻 前提条件
 
 *   **Git:** コードをダウンロードするために必要です。
-*   **Node.js:** JavaScriptの実行環境です。npm (Node Package Manager) も一緒にインストールされます。
+*   **Node.js:** JavaScript の実行環境です。npm (Node Package Manager) も一緒にインストールされます。
 
-### 🛠️ 手順
+### ⚙️ ローカル環境構築手順
 
 #### 1. リポジトリをクローンする
 
@@ -93,65 +93,55 @@
 
 **Windows:**
 
-1. [Gitの公式サイト](https://git-scm.com/download/win) からGitをダウンロードしてインストールします。
-    ![Gitをダウンロード](githubからローカルで見る方法/Screenshot 2025-01-06 at 22.24.37.png)
-2. インストール後、Git Bashを起動します。
-    ![Git Bashを起動](githubからローカルで見る方法/Screenshot 2025-01-06 at 22.27.37.png)
-3. 以下のコマンドを入力して、このプロジェクトのリポジトリをクローン（複製）します。`<repository_url>` には、このプロジェクトのGitHubリポジトリのURLを入れます。
+1. [Git の公式サイト](https://git-scm.com/download/win) から Git をダウンロードしてインストールします。
+    ![Git をダウンロード](githubからローカルで見る方法/cursur(ide)をダウンロード案内.png)
+2. インストール後、Git Bash を起動します。
+    ![Git Bash を起動](githubからローカルで見る方法/cursorのターミナルの場所.png)
+3. 以下のコマンドを入力して、このプロジェクトのリポジトリをクローン（複製）します。`<repository_url>` には、このプロジェクトの GitHub リポジトリの URL を入れます。
 
     ```bash
     git clone <repository_url>
     ```
+    ![リポジトリをクローン](githubからローカルで見る方法/githhubのdownload%20zip案内画像.png)
 
 **Mac:**
 
 1. ターミナルを開きます。
-2. Gitがインストールされていない場合は、以下のコマンドでインストールします。
-
+2. Git がインストールされていない場合は、以下のコマンドでインストールします。
     ```bash
     brew install git
     ```
-
-3. 以下のコマンドを入力して、リポジトリをクローンします。`<repository_url>` には、このプロジェクトのGitHubリポジトリのURLを入れます。
+3. 以下のコマンドを入力して、リポジトリをクローンします。`<repository_url>` には、このプロジェクトの GitHub リポジトリの URL を入れます。
 
     ```bash
     git clone <repository_url>
     ```
 
-#### 2. Node.jsとnpmをインストールする
+#### 2. Node.js と npm をインストールする
 
-次に、JavaScriptの実行環境であるNode.jsと、パッケージ管理ツールのnpmをインストールします。
+次に、JavaScript の実行環境である Node.js と、パッケージ管理ツールの npm をインストールします。
 
 **Windows:**
 
-1. [Node.jsの公式サイト](https://nodejs.org/) からLTS版をダウンロードしてインストールします。npmも一緒にインストールされます。
-    ![Node.jsをダウンロード](githubからローカルで見る方法/Screenshot 2025-01-06 at 22.28.40.png)
-    ![Node.jsインストーラー](githubからローカルで見る方法/Screenshot 2025-01-06 at 22.30.03.png)
-    ![Node.jsインストール先](githubからローカルで見る方法/Screenshot 2025-01-06 at 22.31.24.png)
-2. インストール後、Git Bashを再起動し、以下のコマンドでNode.jsとnpmが正しくインストールされたか確認します。
-
+1. [Node.js の公式サイト](https://nodejs.org/) から LTS 版をダウンロードしてインストールしてください。Node.js には npm (Node Package Manager) が含まれています。
+2. インストール後、Git Bash を再起動し、以下のコマンドで Node.js と npm が正しくインストールされたか確認します。
     ```bash
     node -v
     npm -v
     ```
+    ![Node.js と npm のバージョンを確認](githubからローカルで見る方法/ターミナルでlsコマンドを打つ画像.png)
 
 **Mac:**
 
-1. ターミナルで以下のコマンドを入力して、Homebrewをインストールします（まだインストールしていない場合）。
-
+1. ターミナルで以下のコマンドを入力して、Homebrew をインストールします（まだインストールしていない場合）。
     ```bash
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     ```
-
-2. 以下のコマンドでNode.jsをインストールします。npmも一緒にインストールされます。
-
+2. 以下のコマンドで Node.js をインストールします。npm も一緒にインストールされます。
     ```bash
     brew install node
     ```
-    ![Node.jsをインストール](githubからローカルで見る方法/Screenshot 2025-01-06 at 22.32.15.png)
-    ![Node.jsインストール完了](githubからローカルで見る方法/Screenshot 2025-01-06 at 22.33.08.png)
-3. 以下のコマンドでNode.jsとnpmが正しくインストールされたか確認します。
-
+3. 以下のコマンドで Node.js と npm が正しくインストールされたか確認します。
     ```bash
     node -v
     npm -v
@@ -165,23 +155,20 @@
 cd <repository_name>
 npm install
 ```
-![依存関係をインストール](githubからローカルで見る方法/Screenshot 2025-01-06 at 22.35.24.png)
+![依存関係をインストール](githubからローカルで見る方法/npm%20isntallをしたターミナルの画像.png)
 
 #### 4. 開発サーバーを起動する
 
-以下のコマンドで開発サーバーを起動します。
-
 ```bash
+cd <repository_name>
 npm run dev
 ```
-![開発サーバーを起動](githubからローカルで見る方法/Screenshot 2025-01-06 at 22.37.04.png)
-![開発サーバー起動中](githubからローカルで見る方法/Screenshot 2025-01-06 at 22.37.29.png)
-![開発サーバー起動完了](githubからローカルで見る方法/Screenshot 2025-01-06 at 22.37.48.png)
-![ローカルホスト](githubからローカルで見る方法/Screenshot 2025-01-06 at 22.37.58.png)
+![開発サーバーを起動](githubからローカルで見る方法/npm%20run%20devした画像%20ローカルurl生成.png)
 
 #### 5. ブラウザで開く
 
 ブラウザで `http://localhost:5173/` にアクセスすると、アプリケーションが実行されているのを確認できます。
-![ブラウザで開く](githubからローカルで見る方法/Screenshot 2025-01-06 at 22.39.40.png)
+![ブラウザで開く](githubからローカルで見る方法/ローカルurlを案内している画像.png)
+![アプリケーション実行](githubからローカルで見る方法/無事見れた画像.png)
 
 これで、ローカル環境でこのプロジェクトの開発に参加する準備が整いました。
