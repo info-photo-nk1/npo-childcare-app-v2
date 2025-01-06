@@ -98,7 +98,7 @@
 **Windows:**
 
 1. [Git の公式サイト](https://git-scm.com/download/win) から Git をダウンロードしてインストールします。
-    ![Git をダウンロード](githubからローカルで見る方法/cursur(ide)をダウンロード案内.png)
+    ![Git をダウンロード](./githubからローカルで見る方法/cursur(ide)をダウンロード案内.png)
 2. インストール後、Git Bash を起動します。
     ![Git Bash を起動](githubからローカルで見る方法/cursorのターミナルの場所.png)
 3. 以下のコマンドを入力して、このプロジェクトのリポジトリをクローン（複製）します。`<repository_url>` には、このプロジェクトの GitHub リポジトリの URL を入れます。
