@@ -75,3 +75,113 @@
 - 他地域への展開
 - NPO法人の組織体制の強化
 - データ引き付き機能学校教育との連携
+
+## 🚀 開発者向け：ローカル環境での実行方法
+
+このセクションでは、開発者向けに、GitHubからコードをダウンロードしてローカル環境で実行する手順を説明します。
+
+### 💻 前提条件
+
+*   **Git:** コードをダウンロードするために必要です。
+*   **Node.js:** JavaScriptの実行環境です。npm (Node Package Manager) も一緒にインストールされます。
+
+### 🛠️ 手順
+
+#### 1. リポジトリをクローンする
+
+まず、このプロジェクトのコードをあなたのコンピュータにダウンロードします。
+
+**Windows:**
+
+1. [Gitの公式サイト](https://git-scm.com/download/win) からGitをダウンロードしてインストールします。
+    ![Gitをダウンロード](githubからローカルで見る方法/Screenshot 2025-01-06 at 22.24.37.png)
+2. インストール後、Git Bashを起動します。
+    ![Git Bashを起動](githubからローカルで見る方法/Screenshot 2025-01-06 at 22.27.37.png)
+3. 以下のコマンドを入力して、このプロジェクトのリポジトリをクローン（複製）します。`<repository_url>` には、このプロジェクトのGitHubリポジトリのURLを入れます。
+
+    ```bash
+    git clone <repository_url>
+    ```
+
+**Mac:**
+
+1. ターミナルを開きます。
+2. Gitがインストールされていない場合は、以下のコマンドでインストールします。
+
+    ```bash
+    brew install git
+    ```
+
+3. 以下のコマンドを入力して、リポジトリをクローンします。`<repository_url>` には、このプロジェクトのGitHubリポジトリのURLを入れます。
+
+    ```bash
+    git clone <repository_url>
+    ```
+
+#### 2. Node.jsとnpmをインストールする
+
+次に、JavaScriptの実行環境であるNode.jsと、パッケージ管理ツールのnpmをインストールします。
+
+**Windows:**
+
+1. [Node.jsの公式サイト](https://nodejs.org/) からLTS版をダウンロードしてインストールします。npmも一緒にインストールされます。
+    ![Node.jsをダウンロード](githubからローカルで見る方法/Screenshot 2025-01-06 at 22.28.40.png)
+    ![Node.jsインストーラー](githubからローカルで見る方法/Screenshot 2025-01-06 at 22.30.03.png)
+    ![Node.jsインストール先](githubからローカルで見る方法/Screenshot 2025-01-06 at 22.31.24.png)
+2. インストール後、Git Bashを再起動し、以下のコマンドでNode.jsとnpmが正しくインストールされたか確認します。
+
+    ```bash
+    node -v
+    npm -v
+    ```
+
+**Mac:**
+
+1. ターミナルで以下のコマンドを入力して、Homebrewをインストールします（まだインストールしていない場合）。
+
+    ```bash
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    ```
+
+2. 以下のコマンドでNode.jsをインストールします。npmも一緒にインストールされます。
+
+    ```bash
+    brew install node
+    ```
+    ![Node.jsをインストール](githubからローカルで見る方法/Screenshot 2025-01-06 at 22.32.15.png)
+    ![Node.jsインストール完了](githubからローカルで見る方法/Screenshot 2025-01-06 at 22.33.08.png)
+3. 以下のコマンドでNode.jsとnpmが正しくインストールされたか確認します。
+
+    ```bash
+    node -v
+    npm -v
+    ```
+
+#### 3. 依存関係をインストールする
+
+リポジトリのルートディレクトリに移動し、必要なパッケージをインストールします。
+
+```bash
+cd <repository_name>
+npm install
+```
+![依存関係をインストール](githubからローカルで見る方法/Screenshot 2025-01-06 at 22.35.24.png)
+
+#### 4. 開発サーバーを起動する
+
+以下のコマンドで開発サーバーを起動します。
+
+```bash
+npm run dev
+```
+![開発サーバーを起動](githubからローカルで見る方法/Screenshot 2025-01-06 at 22.37.04.png)
+![開発サーバー起動中](githubからローカルで見る方法/Screenshot 2025-01-06 at 22.37.29.png)
+![開発サーバー起動完了](githubからローカルで見る方法/Screenshot 2025-01-06 at 22.37.48.png)
+![ローカルホスト](githubからローカルで見る方法/Screenshot 2025-01-06 at 22.37.58.png)
+
+#### 5. ブラウザで開く
+
+ブラウザで `http://localhost:5173/` にアクセスすると、アプリケーションが実行されているのを確認できます。
+![ブラウザで開く](githubからローカルで見る方法/Screenshot 2025-01-06 at 22.39.40.png)
+
+これで、ローカル環境でこのプロジェクトの開発に参加する準備が整いました。
