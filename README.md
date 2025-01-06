@@ -93,7 +93,7 @@ VS Code は、コードの編集、デバッグ、Git の操作など、開発�
 #### ダウンロード
 
 [VS Code の公式サイト](https://code.visualstudio.com/) から、お使いの OS に合ったインストーラーをダウンロードしてインストールしてください。
-    ![VS Code をダウンロード](./githubからローカルで見る方法/cursur(ide)をダウンロード案内.png)
+<img src="./githubからローカルで見る方法/cursur(ide)をダウンロード案内.png" alt="VS Code をダウンロード" width="50%">
 
 #### 基本的な使い方
 
@@ -112,10 +112,10 @@ Git を使用しない場合は、GitHub から ZIP ファイルをダウンロ�
 
 1. このプロジェクトの GitHub リポジトリにアクセスします。
 2. 緑色の「Code」ボタンをクリックし、「Download ZIP」を選択してファイルをダウンロードします。
-    ![ZIP ファイルをダウンロード](githubからローカルで見る方法/githhubのdownload%20zip案内画像.png)
+    <img src="./githubからローカルで見る方法/githhubのdownload%20zip案内画像.png" alt="ZIP ファイルをダウンロード" width="50%">
 3. ダウンロードが完了したら、ZIP ファイルを任意の場所に展開します。
-    ![ZIP ファイルを展開](githubからローカルで見る方法/zipがダウンロードされたことがわかる画像.png)
-    ![解答フォルダをドラッグ&ドロップ](githubからローカルで見る方法/解答フォルダをcursurの画面にドラッグ&ドロップしてプロジェクトを開く画像.png)
+    <img src="./githubからローカルで見る方法/zipがダウンロードされたことがわかる画像.png" alt="ZIP ファイルを展開" width="50%">
+    <img src="./githubからローカルで見る方法/解答フォルダをcursurの画面にドラッグ&ドロップしてプロジェクトを開く画像.png" alt="解答フォルダをドラッグ&ドロップ" width="50%">
 
 #### 2. Node.js と npm をインストールする
 
@@ -129,7 +129,7 @@ Git を使用しない場合は、GitHub から ZIP ファイルをダウンロ�
     node -v
     npm -v
     ```
-    ![Node.js と npm のバージョンを確認](githubからローカルで見る方法/ターミナルでlsコマンドを打つ画像.png)
+    <img src="./githubからローカルで見る方法/ターミナルでlsコマンドを打つ画像.png" alt="Node.js と npm のバージョンを確認" width="50%">
 
 **Mac:**
 
@@ -160,19 +160,19 @@ cd <repository_name>
 ```bash
 npm install
 ```
-![依存関係をインストール](githubからローカルで見る方法/npm%20isntallをしたターミナルの画像.png)
+<img src="./githubからローカルで見る方法/npm%20isntallをしたターミナルの画像.png" alt="依存関係をインストール" width="50%">
 
 #### 4. 開発サーバーを起動する
 
 ```bash
 npm run dev
 ```
-![開発サーバーを起動](githubからローカルで見る方法/npm%20run%20devした画像%20ローカルurl生成.png)
+<img src="./githubからローカルで見る方法/npm%20run%20devした画像%20ローカルurl生成.png" alt="開発サーバーを起動" width="50%">
 
 #### 5. ブラウザで開く
 
 ブラウザで `http://localhost:5173/` にアクセスすると、アプリケーションが実行されているのを確認できます。
-![ブラウザで開く](githubからローカルで見る方法/ローカルurlを案内している画像.png)
-![アプリケーション実行](githubからローカルで見る方法/無事見れた画像.png)
+<img src="./githubからローカルで見る方法/ローカルurlを案内している画像.png" alt="ブラウザで開く" width="50%">
+<img src="./githubからローカルで見る方法/無事見れた画像.png" alt="アプリケーション実行" width="50%">
 
 これで、ローカル環境でこのプロジェクトの開発に参加する準備が整いました。
